@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proiectMaui.SettingsPage"
+             Title="Personalizare">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Temă aplicație:" FontAttributes="Bold" />
+            <Button x:Name="themeToggleButton"
+Text="Comută mod întunecat"
+BackgroundColor="DarkGray"
+TextColor="White"
+Clicked="OnToggleThemeClicked" />
+
+            <!-- Adăugare tip exercițiu -->
+            <Label Text="Adaugă tip nou de exercițiu:" FontAttributes="Bold" />
+            <HorizontalStackLayout>
+                <Entry x:Name="exerciseTypeEntry" Placeholder="Ex: Flotări" />
+                <Button Text="Adaugă" Clicked="OnAddExerciseTypeClicked" WidthRequest="100" />
+            </HorizontalStackLayout>
+
+            <!-- Listă tipuri exerciții -->
+            <Label Text="Tipuri de exerciții disponibile:" FontAttributes="Bold" />
+            <CollectionView x:Name="exerciseTypeList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*, Auto" Padding="5">
+                            <Label Text="{Binding}" Grid.Column="0" />
+                            <Button Text="✕" Grid.Column="1" BackgroundColor="Red" TextColor="White"
+                                    CommandParameter="{Binding}"
+                                    Clicked="OnDeleteExerciseTypeClicked"
+                                    WidthRequest="30" HeightRequest="30" Padding="0" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Separator -->
+            <BoxView Color="LightGray" HeightRequest="1" />
+
+            <Label x:Name="workoutCountLabel"
+       Text="Ai 0 antrenamente salvate. Doresti sa le stergi?"
+       FontAttributes="Italic"
+       HorizontalOptions="Center"
+       TextColor="LightGray" />
+
+
+            <!-- Ștergere toate antrenamentele -->
+            <Button Text="Șterge toate antrenamentele"
+                    BackgroundColor="DarkRed" TextColor="White"
+                    Clicked="OnDeleteAllWorkoutsClicked" />
+
+            
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

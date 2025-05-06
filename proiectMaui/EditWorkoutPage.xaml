@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proiectMaui.EditWorkoutPage"
+             Title="Editare antrenament">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Câmpuri generale -->
+            <Entry x:Name="titleEntry" Placeholder="Titlu antrenament" />
+            <Picker x:Name="typePicker" Title="Tip antrenament" />
+            <DatePicker x:Name="datePicker" />
+            <Entry x:Name="durationEntry" Placeholder="Durată (minute)" Keyboard="Numeric" />
+            <Editor x:Name="notesEditor" Placeholder="Note" HeightRequest="100" />
+
+            <!-- Separator -->
+            <BoxView Color="LightGray" HeightRequest="1" />
+
+            <!-- Listă exerciții -->
+            <Label Text="Exerciții incluse:" FontAttributes="Bold" />
+            <CollectionView x:Name="exerciseList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,Auto,Auto" Padding="5">
+                            <Label Text="{Binding Name}" />
+                            
+                           
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Adăugare exercițiu -->
+            
+
+            <!-- Separator -->
+            <BoxView Color="LightGray" HeightRequest="1" />
+
+            <!-- Salvează -->
+           
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

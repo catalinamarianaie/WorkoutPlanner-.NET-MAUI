@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proiectMaui.AddWorkoutPage"
+             Title="Adaugă antrenament">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Entry x:Name="titleEntry" Placeholder="Titlu antrenament" />
+
+            <Picker x:Name="typePicker" Title="Tip antrenament">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Cardio</x:String>
+                        <x:String>Forță</x:String>
+                        <x:String>Flexibilitate</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <DatePicker x:Name="datePicker" />
+
+            <Entry x:Name="durationEntry" Placeholder="Durată (minute)" Keyboard="Numeric" />
+
+            <Editor x:Name="notesEditor" Placeholder="Note" HeightRequest="100" />
+            <Label Text="Exerciții" FontSize="18" FontAttributes="Bold"/>
+
+            <Picker x:Name="exercisePicker" Title="Alege exercițiul" />
+
+            <HorizontalStackLayout>
+                <Entry x:Name="repsEntry" Placeholder="Repetări" Keyboard="Numeric" />
+                <Entry x:Name="setsEntry" Placeholder="Serii" Keyboard="Numeric" />
+            </HorizontalStackLayout>
+
+            <Button Text="Adaugă exercițiul"
+        Clicked="OnAddExerciseClicked"
+        WidthRequest="180"
+        HorizontalOptions="Start" />
+
+
+            <CollectionView x:Name="exerciseList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <Button Text="Salvează" Clicked="OnSaveClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
