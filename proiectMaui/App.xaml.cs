@@ -9,6 +9,12 @@ namespace proiectMaui
             InitializeComponent();
 
             MainPage = new AppShell();
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+            {
+                System.Diagnostics.Debug.WriteLine("🔴 EXCEPTIE NECAPTURATA: " + e.ExceptionObject?.ToString());
+            };
+
             Task.Run(async () =>
             {
                 await WorkoutData.LoadAsync();

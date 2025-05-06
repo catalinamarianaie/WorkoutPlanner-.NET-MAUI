@@ -4,6 +4,10 @@ namespace proiectMaui;
 
 public partial class WorkoutDetailsPage : ContentPage
 {
+    public WorkoutDetailsPage()
+    {
+        InitializeComponent();
+    }
     public WorkoutDetailsPage(Workout workout)
     {
         InitializeComponent();
