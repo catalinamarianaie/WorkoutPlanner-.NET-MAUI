@@ -1,4 +1,4 @@
-# Workout Planner - .NET MAUI Mobile Application
+# Workout Planner - .NET MAUI 
 
 ## 📋 Descrierea Proiectului
 Aplicația **Workout Planner** este o aplicație mobilă dezvoltată în **.NET MAUI** care permite utilizatorilor să își creeze, editeze și gestioneze antrenamentele personale. Aplicația oferă funcționalități precum statistici avansate, salvarea datelor în format JSON și navigare intuitivă.
