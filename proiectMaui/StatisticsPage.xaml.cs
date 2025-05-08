@@ -17,7 +17,7 @@ public partial class StatisticsPage : ContentPage
 
         if (workouts.Count == 0)
         {
-            totalLabel.Text = "Nu exist? antrenamente.";
+            totalLabel.Text = "Nu exista antrenamente.";
             durationLabel.Text = "";
             averageLabel.Text = "";
             commonLabel.Text = "";

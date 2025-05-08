@@ -10,7 +10,7 @@
             <Label Text="Temă aplicație:" FontAttributes="Bold" />
             <Button x:Name="themeToggleButton"
 Text="Comută mod întunecat"
-BackgroundColor="DarkGray"
+
 TextColor="White"
 Clicked="OnToggleThemeClicked" />
 

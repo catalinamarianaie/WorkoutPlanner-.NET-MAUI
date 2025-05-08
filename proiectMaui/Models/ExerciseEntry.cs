@@ -12,11 +12,7 @@ namespace proiectMaui.Models
         public int Sets { get; set; }
         public int Reps { get; set; }
 
-        public string ReprDisplay
-        {
-            get { return $"{Sets}×{Reps}"; }
-            set { /* necesar pentru binding, chiar dacă nu folosești setterul */ }
-        }
+        public string ReprDisplay => $"{Name} - {Sets} seturi x {Reps} repetări";
 
     }
 }

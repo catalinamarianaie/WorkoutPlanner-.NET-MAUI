@@ -1,60 +1,48 @@
-using proiectMaui.Models;
+﻿using proiectMaui.Models;
+using Microsoft.Maui.Controls;
+using System.Linq;
 
 namespace proiectMaui;
 
+[QueryProperty(nameof(Workout), "workout")]
 public partial class WorkoutDetailsPage : ContentPage
 {
+    public Workout Workout { get; set; }
+
     public WorkoutDetailsPage()
     {
         InitializeComponent();
     }
-    public WorkoutDetailsPage(Workout workout)
+
+    protected override void OnAppearing()
     {
-        InitializeComponent();
+        base.OnAppearing();
 
-        if (workout == null)
+        if (Workout != null)
         {
-            Content = new StackLayout
+            titleLabel.Text = Workout.Title;
+            typeLabel.Text = Workout.Type;
+            dateLabel.Text = $"Data: {Workout.Date:dd MMMM yyyy}";
+            durationLabel.Text = $"Durată: {Workout.DurationMinutes} minute";
+            notesLabel.Text = Workout.Notes;
+            notesLabel.IsVisible = !string.IsNullOrWhiteSpace(Workout.Notes);
+
+            if (Workout.Exercisess != null && Workout.Exercisess.Any())
             {
-                Padding = 30,
-                VerticalOptions = LayoutOptions.Center,
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Nu ai selectat niciun antrenament.\nTe rug?m s? alegi unul din pagina principal?.",
-                        FontSize = 18,
-                        HorizontalTextAlignment = TextAlignment.Center,
-                        TextColor = Colors.Gray
-                    },
-                    new Button
-                    {
-                        Text = "Revenire la Acas?",
-                        Command = new Command(async () => await Shell.Current.GoToAsync("..")),
-                        HorizontalOptions = LayoutOptions.Center,
-                        Margin = new Thickness(0, 20, 0, 0)
-                    }
-                }
-            };
-
-            return;
-        }
-
-        titleLabel.Text = workout.Title;
-        typeLabel.Text = workout.Type;
-        dateLabel.Text = $"Data: {workout.Date:dd MMMM yyyy}";
-        durationLabel.Text = $"Durat?: {workout.DurationMinutes} minute";
-
-        notesLabel.Text = workout.Notes;
-        notesLabel.IsVisible = !string.IsNullOrWhiteSpace(workout.Notes);
-
-        if (workout.Exercisess != null && workout.Exercisess.Any())
-        {
-            exerciseList.ItemsSource = workout.Exercisess;
-            exerciseList.IsVisible = true;
+                exerciseList.ItemsSource = Workout.Exercisess;
+                exerciseList.IsVisible = true;
+            }
+            else
+            {
+                exerciseList.IsVisible = false;
+            }
         }
         else
         {
+            titleLabel.Text = "Nicio selecție";
+            notesLabel.Text = "Deschide un antrenament din listă pentru a vedea detaliile.";
+            notesLabel.TextColor = Colors.Gray;
+            notesLabel.IsVisible = true;
             exerciseList.IsVisible = false;
         }
     }

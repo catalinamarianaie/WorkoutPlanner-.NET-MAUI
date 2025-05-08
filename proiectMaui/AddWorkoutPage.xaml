@@ -13,7 +13,10 @@
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Cardio</x:String>
                         <x:String>Forță</x:String>
-                        <x:String>Flexibilitate</x:String>
+                        <x:String>Electro Muscular Stimulation (EMS)</x:String>
+                        <x:String>Stretching</x:String>
+                        <x:String>Yoga</x:String>
+                        <x:String>Pilates</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>

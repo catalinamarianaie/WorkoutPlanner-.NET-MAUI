@@ -36,14 +36,14 @@ public partial class SettingsPage : ContentPage
 
     private async void OnDeleteAllWorkoutsClicked(object sender, EventArgs e)
     {
-        bool confirm = await DisplayAlert("Confirmare", "E?ti sigur c? vrei s? ?tergi toate antrenamentele?", "Da", "Nu");
+        bool confirm = await DisplayAlert("Confirmare", "Esti sigur ca vrei sa stergi toate antrenamentele?", "Da", "Nu");
         if (confirm)
         {
             WorkoutData.Workouts.Clear();
             await WorkoutData.SaveAsync();
-            await DisplayAlert("Succes", "Toate antrenamentele au fost ?terse.", "OK");
+            await DisplayAlert("Succes", "Toate antrenamentele au fost sterse.", "OK");
         }
-        workoutCountLabel.Text = "Ai 0 antrenamente salvate. Dore?ti s? le ?tergi?";
+        workoutCountLabel.Text = "Ai 0 antrenamente salvate. Doresti sa le stergi?";
 
     }
 

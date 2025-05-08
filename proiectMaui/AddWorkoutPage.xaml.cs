@@ -3,6 +3,8 @@ namespace proiectMaui;
 
 public partial class AddWorkoutPage : ContentPage
 {
+    private List<ExerciseEntry> tempExercises = new();
+
     public AddWorkoutPage()
     {
         InitializeComponent();
@@ -12,27 +14,25 @@ public partial class AddWorkoutPage : ContentPage
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        // Validare simplă
         if (string.IsNullOrWhiteSpace(titleEntry.Text) || typePicker.SelectedIndex == -1 || string.IsNullOrWhiteSpace(durationEntry.Text))
         {
-            DisplayAlert("Eroare", "Completează toate câmpurile obligatorii!", "OK");
+            await DisplayAlert("Eroare", "Completează toate câmpurile obligatorii!", "OK");
             return;
         }
 
         var workout = new Workout
         {
             Title = titleEntry.Text,
-            Type = typePicker.SelectedItem.ToString(),
+            Type = typePicker.SelectedItem?.ToString(),
             Date = datePicker.Date,
             DurationMinutes = int.Parse(durationEntry.Text),
             Notes = notesEditor.Text,
-            Exercises = addedExercises.ToList()
+            Exercisess = new List<ExerciseEntry>(tempExercises)  // Folosește lista corectă
         };
-
 
         WorkoutData.Workouts.Add(workout);
         await WorkoutData.SaveAsync();
-        DisplayAlert("Succes", "Antrenamentul a fost salvat!", "OK");
+        await DisplayAlert("Succes", "Antrenamentul a fost salvat!", "OK");
 
         // Curăță formularul
         titleEntry.Text = string.Empty;
@@ -40,8 +40,10 @@ public partial class AddWorkoutPage : ContentPage
         durationEntry.Text = string.Empty;
         notesEditor.Text = string.Empty;
         datePicker.Date = DateTime.Today;
-
+        tempExercises.Clear();
+        exerciseList.ItemsSource = null;
     }
+
 
     private void OnAddExerciseClicked(object sender, EventArgs e)
     {
@@ -53,22 +55,25 @@ public partial class AddWorkoutPage : ContentPage
             return;
         }
 
-        var exercise = new Exercise
+        // Creează un nou ExerciseEntry
+        var exerciseEntry = new ExerciseEntry
         {
             Name = name,
             Reps = reps,
             Sets = sets
         };
 
-        addedExercises.Add(exercise);
+        tempExercises.Add(exerciseEntry);
 
+        // Actualizează lista de exerciții
         exerciseList.ItemsSource = null;
-        exerciseList.ItemsSource = addedExercises;
+        exerciseList.ItemsSource = tempExercises.Select(e => e.ReprDisplay).ToList();
 
         // Curățare câmpuri
         exercisePicker.SelectedIndex = -1;
         repsEntry.Text = "";
         setsEntry.Text = "";
     }
+
 
 }

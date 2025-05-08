@@ -14,7 +14,12 @@ namespace proiectMaui.Models
         public int DurationMinutes { get; set; }
         public string Notes { get; set; }
         public List<Exercise> Exercises { get; set; } = new();
-        public List<ExerciseEntry> Exercisess { get; set; } = new();
+        public List<ExerciseEntry> Exercisess { get; set; } = new List<ExerciseEntry>();
+
+        public override string ToString()
+        {
+            return Title;
+        }
 
     }
 }

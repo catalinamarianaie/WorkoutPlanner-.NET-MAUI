@@ -10,8 +10,8 @@
     <TabBar>
         <ShellContent Title="Acasă" ContentTemplate="{DataTemplate local:HomePage}" Route="HomePage" />
         <ShellContent Title="Adaugă" ContentTemplate="{DataTemplate local:AddWorkoutPage}" Route="AddWorkoutPage" />
-        <ShellContent Title="Detalii" ContentTemplate="{DataTemplate local:WorkoutDetailsPage}" Route="WorkoutDetailsPage" />
-        <ShellContent Title="Editare" ContentTemplate="{DataTemplate local:EditWorkoutPage}" Route="EditWorkoutPage" />
+        
+        
         <ShellContent Title="Statistici" ContentTemplate="{DataTemplate local:StatisticsPage}" Route="StatisticsPage" />
         <ShellContent Title="Personalizare" ContentTemplate="{DataTemplate local:SettingsPage}" Route="SettingsPage" />
     </TabBar>

@@ -17,37 +17,45 @@
         <!-- Lista cu antrenamente -->
         <CollectionView x:Name="workoutList"
                         ItemsSource="{Binding}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnWorkoutSelected"
                         IsVisible="True">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5">
-                        <Grid ColumnDefinitions="*, Auto">
+                        <Grid ColumnDefinitions="*, Auto, Auto" RowDefinitions="Auto, Auto">
                             <!-- Informațiile despre antrenament -->
-                            <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <VerticalStackLayout Grid.ColumnSpan="3" Grid.Row="0" Spacing="4">
                                 <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold"/>
                                 <Label Text="{Binding Type}" />
                                 <Label Text="{Binding Date, StringFormat='{0:dd MMM yyyy}'}" />
                                 <Label Text="{Binding DurationMinutes, StringFormat='Durată: {0} minute'}"/>
                             </VerticalStackLayout>
 
-                            <!-- Butonul, centrat pe verticală în partea dreaptă -->
-                            <Button Grid.Column="1"
-                                Text="Șterge antrenamentul"
-                                BackgroundColor="DarkRed"
-                                TextColor="White"
-                                VerticalOptions="Center"
-                                HorizontalOptions="End"
-                                Padding="10,5"
-                                Clicked="OnDeleteClicked"
-                                CommandParameter="{Binding}" />
-                        </Grid>
-                        
+                            <VerticalStackLayout Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="End" Spacing="10">
+                                <Button Text="Modifică"
+                    
+                    TextColor="White"
+                    Padding="10,5"
+                    WidthRequest="100"
+                    HorizontalOptions="End"
+                    Clicked="OnEditWorkoutClicked"
+                    CommandParameter="{Binding}" />
 
+                                <Button Text="Șterge"
+                    BackgroundColor="DarkRed"
+                    TextColor="White"
+                    Padding="10,5"
+                    WidthRequest="100"
+                    HorizontalOptions="End"
+                    Clicked="OnDeleteClicked"
+                    CommandParameter="{Binding}" />
+                            </VerticalStackLayout>
+
+                        </Grid>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-
     </Grid>
 </ContentPage>
