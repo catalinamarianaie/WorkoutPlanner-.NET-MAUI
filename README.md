@@ -1,23 +1,23 @@
-# Workout Planner - .NET MAUI 
+# Workout Planner - .NET MAUI
 
-## 📋 Descrierea Proiectului
-Aplicația **Workout Planner** este o aplicație mobilă dezvoltată în **.NET MAUI** care permite utilizatorilor să își creeze, editeze și gestioneze antrenamentele personale. Aplicația oferă funcționalități precum statistici avansate, salvarea datelor în format JSON și navigare intuitivă.
+## 📋 Project Description
+**Workout Planner** is a mobile application developed in **.NET MAUI** that allows users to create, edit, and manage their personal workouts. The app provides features such as advanced statistics, data persistence in JSON format, and intuitive navigation.
 
-## 🚀 Funcționalități Principale
-- Creare, editare și ștergere de antrenamente
-- Statistici pentru durata și frecvența antrenamentelor
-- Tipuri de antrenament: Forță, Cardio, Stretching, Încălzire, Pilates, Yoga, EMS
-- Salvarea persistentă a datelor în JSON
-- Navigare simplă între pagini folosind .NET MAUI Shell
+## 🚀 Main Features
+- Create, edit, and delete workouts
+- Statistics for workout duration and frequency
+- Workout types: Strength, Cardio, Stretching, Warm-up, Pilates, Yoga, EMS
+- Persistent data storage in JSON
+- Easy page navigation using .NET MAUI Shell
 
-## 📂 Structura Proiectului
-- **Models/** - Definiții pentru Workout, Exercise, ExerciseTypes
-- **Views/** - Pagini pentru adăugare, editare și vizualizare detalii antrenamente
-- **ViewModels/** - Logica de business pentru gestionarea antrenamentelor
-- **Services/** - Funcții pentru salvarea și încărcarea datelor JSON
+## 📂 Project Structure
+- **Models/** – Definitions for Workout, Exercise, ExerciseTypes
+- **Views/** – Pages for adding, editing, and viewing workout details
+- **ViewModels/** – Business logic for managing workouts
+- **Services/** – Functions for saving and loading JSON data
 
-## 🛠️ Tehnologii Folosite
-- **.NET MAUI** - Pentru dezvoltarea aplicației mobile
-- **C#** - Limbaj de programare
-- **JSON** - Pentru stocarea datelor
-- **XAML** - Pentru design-ul interfeței
+## 🛠️ Technologies Used
+- **.NET MAUI** – For mobile application development
+- **C#** – Programming language
+- **JSON** – For data storage
+- **XAML** – For interface design
